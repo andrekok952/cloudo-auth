@@ -28,7 +28,7 @@ export class LoginPage {
         password: this.password
       };
 
-      this.http.post('http://localhost:3000/auth/login', JSON.stringify(credentials), {headers: headers})
+      this.http.post('http://howru2dayauth.azurewebsites.net:3000/auth/login', JSON.stringify(credentials), {headers: headers})
         .subscribe(res => {
           this.todoService.init(res.json());
           this.nav.setRoot(HomePage);
