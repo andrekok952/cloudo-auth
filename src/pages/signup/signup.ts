@@ -33,7 +33,7 @@ export class SignupPage {
         confirmPassword: this.confirmPassword
       };
 
-      this.http.post('http://howru2dayauth.azurewebsites.net:443/auth/register', JSON.stringify(user), {headers: headers})
+      this.http.post('http://howru2dayserver2.azurewebsites.net/auth/register', JSON.stringify(user), {headers: headers})
         .subscribe(res => {
           this.todoService.init(res.json());
           this.nav.setRoot(HomePage);
