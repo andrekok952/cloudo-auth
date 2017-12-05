@@ -12,6 +12,7 @@ import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
 import { AuthProvider } from '../providers/auth/auth';
 import { UsernameValidator } from '../validators/username';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { UsernameValidator } from '../validators/username';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpModule,
     IonicModule.forRoot(MyApp)
   ],
