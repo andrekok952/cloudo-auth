@@ -13,12 +13,13 @@ import { FormGroup } from '@angular/forms';
   templateUrl: 'signup.html'
 })
 export class SignupPage {
-  signupForm: FormGroup
+  signupForm: FormGroup;
   name: string;
   username: string;
   email: string;
   password: string;
   confirmPassword: string;
+  public submitAttempt: boolean = false;
 
   constructor(public nav: NavController, public http: Http, public todoService: Todos,
     public formBuilder: FormBuilder,
@@ -35,7 +36,7 @@ confirmPassword: ["",Validators.compose([Validators.required])]
 })
   }
   register(){
-
+this.submitAttempt = true;
       let headers = new Headers();
       headers.append('Content-Type', 'application/json');
 

@@ -28,7 +28,8 @@
           <p>Checking username...</p>
       </ion-item>
 
-      <ion-item *ngIf="!signupForm.controls.username.valid && !signupForm.controls.username.pending">
+      <ion-item *ngIf="!signupForm.controls.username.valid && !signupForm.controls.username.pending
+            && (signupForm.controls.username.dirty || this.submitAttempt)">
           <p>Sorry, that username can not be used!</p>
       </ion-item>
 
