@@ -10,6 +10,8 @@ import { HomePage } from '../pages/home/home';
 import { Todos } from '../providers/todos/todos';
 import { SignupPage } from '../pages/signup/signup';
 import { LoginPage } from '../pages/login/login';
+import { AuthProvider } from '../providers/auth/auth';
+import { UsernameValidator } from '../validators/username';
 
 @NgModule({
   declarations: [
@@ -34,7 +36,9 @@ import { LoginPage } from '../pages/login/login';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    Todos
+    Todos,
+    AuthProvider,
+    UsernameValidator
   ]
 })
 export class AppModule {}
