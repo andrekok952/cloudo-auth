@@ -4,9 +4,9 @@ import { NavController } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { Todos } from '../../providers/todos/todos';
 import { UsernameValidator } from '../../validators/username';
-import { Validators } from '@angular/forms/src/validators';
-import { FormBuilder } from '@angular/forms/src/form_builder';
-import { FormGroup } from '@angular/forms/src/model';
+import { Validators } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
+import { FormGroup } from '@angular/forms';
 //
 @Component({
   selector: 'page-signup',
