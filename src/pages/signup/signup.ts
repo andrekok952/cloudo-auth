@@ -7,6 +7,7 @@ import { UsernameValidator } from '../../validators/username';
 import { Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { FormGroup } from '@angular/forms';
+import {FormControl} from '@angular/forms';
 //
 @Component({
   selector: 'page-signup',

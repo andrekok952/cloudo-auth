@@ -18,7 +18,9 @@ export class AuthProvider {
   }
 
   validateUsername(username){
-    return this.http.get('http://HowRU2DayServer2/' + 'auth/validate-username/' + username).map(res => res.json());
+    console.log("getting into username validation");
+    console.log(username);
+    return this.http.get('http://HowRU2DayServer2.azurewebsites.net/' + 'auth/validate-username/' + username).map(res => res.json());
 }
 
 
