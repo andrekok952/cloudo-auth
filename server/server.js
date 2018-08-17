@@ -32,13 +32,13 @@ var config = {
     couchAuthDB: '_users'
   },
   mailer: {
-    fromEmail: 'gmail.user@gmail.com',
+    fromEmail: 'noreply@gmail.com',
+    transport: require('nodemailer-sendgrid-transport'),
     options: {
-      service: 'Gmail',
-        auth: {
-          user: 'gmail.user@gmail.com',
-          pass: 'userpass'
-        }
+       auth: {
+         api_user: 'azure_ae9b759c7600baf20662a23b8253a602@azure.com',
+         api_key: 'Newl!fe52'
+         }
     }
   },
   security: {
@@ -59,7 +59,20 @@ var config = {
   },
   providers: {
     local: true
-  }
+  },
+  emails: {
+         confirmEmail: {
+           subject: 'Please confirm your email',
+           template: path.join(__dirname, '../templates/email/confirm-email.ejs'),
+           format: 'text'
+         },
+         forgotPassword: {
+           subject: 'Your password reset link',
+           template: path.join(__dirname, '../templates/email/forgot-password.ejs'),
+           format: 'text'
+         }
+       }
+
 }
 
 // Initialize SuperLogin

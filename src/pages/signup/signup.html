@@ -21,24 +21,35 @@
 
          <ion-item>
           <ion-label><ion-icon name="person"></ion-icon></ion-label>
-          <ion-input  formControlName="username" type="text"></ion-input>
+          <ion-input (input)="refresh()" formControlName="username" type="text" placeholder="UserName"></ion-input>
       </ion-item>
 
+  <!--    <ion-item *ngIf="signupForm.controls.username.pending">
+          <p>Checking username...</p>
+      </ion-item>-->
+
+      <p class="FormError" *ngIf="(usernameError) && (submitAttempt)">
+          {{usernameError}}</p>
 
          <ion-item>
            <ion-label><ion-icon name="mail"></ion-icon></ion-label>
-           <ion-input formControlName="email" placeholder="Email" type="email"></ion-input>
+           <ion-input (input)="refresh()" formControlName="email" placeholder="Email" type="email"></ion-input>
+         </ion-item>
+<p class="FormError" *ngIf="(emailError) && (submitAttempt)">
+        {{emailError}}
+</p>
+         <ion-item>
+           <ion-label><ion-icon name="lock"></ion-icon></ion-label>
+           <ion-input (input)="refresh()" formControlName="password" placeholder="Password" type="password"></ion-input>
          </ion-item>
 
          <ion-item>
            <ion-label><ion-icon name="lock"></ion-icon></ion-label>
-           <ion-input formControlName="password" placeholder="Password" type="password"></ion-input>
+           <ion-input (input)="refresh()" formControlName="confirmPassword" placeholder="Confirm password" type="password"></ion-input>
          </ion-item>
-
-         <ion-item>
-           <ion-label><ion-icon name="lock"></ion-icon></ion-label>
-           <ion-input formControlName="confirmPassword" placeholder="Confirm password" type="password"></ion-input>
-         </ion-item>
+         <p class="FormError" *ngIf="(passwordError) && (submitAttempt)">
+           {{passwordError}}
+         </p>
 </form>
        </ion-list>
 
@@ -46,5 +57,5 @@
 
      </ion-col>
    </ion-row>
-
+<p> {{signupForm.value | json }}</p>
  </ion-content>

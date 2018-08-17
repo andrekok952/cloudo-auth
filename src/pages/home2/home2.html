@@ -1,0 +1,110 @@
+<!--<ion-header no-border>
+  <ion-navbar color="secondary">
+    <ion-title>
+      WellNess
+    </ion-title>
+    <ion-buttons left>
+      <button ion-button icon-only (click)="viewSettings()"><ion-icon name="notifications"></ion-icon></button>
+      <button ion-button icon-only (click)="captureAudio()"><ion-icon name="mic"></ion-icon></button>
+    </ion-buttons>
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+<ion-spinner *ngIf="showSpinner" name="bubbles"></ion-spinner>
+  <ion-list lines>
+<ion-item *ngIf="showAndroid">{{what}}</ion-item>
+   <ion-item-sliding *ngFor="let entry of entries2; let odd = odd; ">
+   <ion-item ><span>{{entry._id}}</span>
+    <span *ngIf="entry.health" ><ion-icon small name="pulse" [ngStyle]="{color: 'blue'}">
+      </ion-icon></span>
+  <span *ngIf="entry.mood"><ion-icon small name="sunny" [ngStyle]="{color: 'orange'}"></ion-icon></span>
+  <span *ngIf="entry.medication"><ion-icon small name="medkit" [ngStyle]="{color: 'green'}"></ion-icon></span>
+  <span *ngIf="entry.exercise"><ion-icon small name="bicycle" [ngStyle]="{color: 'green'}"></ion-icon></span>
+  <span *ngIf="entry.nutrition"><ion-icon small name="restaurant" [ngStyle]="{color: 'black'}"></ion-icon></span>
+   </ion-item>
+
+   </ion-item-sliding>
+  </ion-list>
+</ion-content>-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      My Calendar App
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="calendar-header">
+    <ion-row class="calendar-month">
+      <ion-col col-2 (click)="goToLastMonth()"><ion-icon name="arrow-back"></ion-icon></ion-col>
+      <ion-col col-8>{{currentMonth}} {{currentYear}}</ion-col>
+      <ion-col col-2 (click)="goToNextMonth()"><ion-icon name="arrow-forward"></ion-icon></ion-col>
+    </ion-row>
+  </div>
+  <div class="calendar-body">
+    <ion-grid>
+      <ion-row class="calendar-weekday">
+        <ion-col>Su</ion-col>
+        <ion-col>Mo</ion-col>
+        <ion-col>Tu</ion-col>
+        <ion-col>We</ion-col>
+        <ion-col>Th</ion-col>
+        <ion-col>Fr</ion-col>
+        <ion-col>Sa</ion-col>
+      </ion-row>
+      <ion-row class="calendar-date">
+        <ion-col col-1 *ngFor="let lastDay of daysInLastMonth" class="last-month">{{lastDay}}</ion-col>
+        <ion-col col-1 *ngFor="let day of daysInThisMonth" (click)="selectDate(day)">
+          <span class="currentDate" *ngIf="currentDate === day; else otherDate">{{day}}
+            </span>
+             <ng-template #otherDate class="otherDate">
+
+                   {{day}}
+         <!--   <div class="event-bullet" *ngIf="checkEvent(day)"></div>-->
+            <div class="health-bullet" *ngIf="checkHealth(day)"></div>
+            <div class="mood-bullet" *ngIf="checkMood(day)"></div>
+            <div class="medication-bullet" *ngIf="checkMedication(day)"></div>
+<div class="nutrition-bullet" *ngIf="checkNutrition(day)"></div>
+<div class="exercise-bullet" *ngIf="checkExcercise(day)"></div>
+
+          </ng-template>
+        </ion-col>
+        <ion-col col-1 *ngFor="let nextDay of daysInNextMonth" class="next-month">{{nextDay}}</ion-col>
+      </ion-row>
+      <ion-row class="today" *ngIf="showToday" justify-content-center>
+        <ion-col >Today <div class="health-bullet" *ngIf="checkHealth(currentDate)"></div>
+          <div class="mood-bullet" *ngIf="checkMood(currentDate)"></div>
+          <div class="medication-bullet" *ngIf="checkMedication(currentDate)"></div>
+<div class="nutrition-bullet" *ngIf="checkNutrition(currentDate)"></div>
+<div class="exercise-bullet" *ngIf="checkExcercise(currentDate)"></div></ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+    <button ion-item (click)="showKeyToggle()" ><ion-icon name="key"></ion-icon></button>
+<div *ngIf="showKey">
+  <ion-grid padding>
+      <ion-row >
+     <!--   <ion-chip color="light">-->
+        <ion-col col-1 ><ion-icon name="pulse" [ngStyle]="{'color':'rgb(26, 146, 245)'}"></ion-icon></ion-col>
+    <!--    </ion-chip> -->
+    <!--    <ion-chip color="light">-->
+        <ion-col col-1><ion-icon small name="sunny" [ngStyle]="{'color':'indigo'}"></ion-icon></ion-col>
+      <!--  </ion-chip>-->
+      <!--  <ion-chip color="light">-->
+        <ion-col col-1><ion-icon name="medkit"[ngStyle]="{'color':'blue'}"></ion-icon></ion-col>
+       <!-- </ion-chip>
+        <ion-chip color="light">-->
+        <ion-col col-1><ion-icon name="pizza" [ngStyle]="{'color':'green'}" ></ion-icon></ion-col>
+       <!-- </ion-chip>
+        <ion-chip color="light">-->
+        <ion-col col-1><ion-icon name="bicycle" [ngStyle]="{'color':'red'}"></ion-icon></ion-col>
+        <!--<ion-col col-1></ion-col>-->
+     <!--   </ion-chip>-->
+      </ion-row>
+    </ion-grid>
+</div>
+</ion-content>

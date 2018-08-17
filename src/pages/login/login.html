@@ -1,7 +1,7 @@
-<ion-content padding>
+<ion-content padding class="bg">
 
    <ion-row class="login-logo">
-     <ion-col><img src="http://placehold.it/100x100" /></ion-col>
+     <ion-col><img src="../../assets/imgs/HowRU2Day.png" width="100px"/></ion-col>
    </ion-row>
 
    <ion-row class="login-form">
@@ -17,7 +17,7 @@
            <ion-label><ion-icon name="lock"></ion-icon></ion-label>
            <ion-input [(ngModel)]="password" placeholder="password" type="password"></ion-input>
          </ion-item>
-
+<p *ngIf="(loginError)">{{loginError}}</p>
        </ion-list>
 
        <button ion-button (click)="login()" primary class="login-button">Login</button>
@@ -30,5 +30,9 @@
          <button (click)="launchSignup()" class="create-account">Create an Account</button>
        </ion-col>
    </ion-row>
-
+<ion-row>
+  <ion-col>
+    <button ion-button (click)="forgotpassword()">Forgot Password</button>
+  </ion-col>
+</ion-row>
  </ion-content>

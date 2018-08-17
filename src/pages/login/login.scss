@@ -17,7 +17,7 @@
            border-radius: 30px !important;
            padding-left: 10px !important;
            margin-bottom: 10px;
-           background-color: #f6f6f6;
+           background-color: #535151;
            opacity: 0.7;
            font-size: 0.9em;
        }
@@ -25,7 +25,10 @@
        ion-list {
            margin: 0;
        }
-
+       .bg {
+        background: url(../../assets/imgs/Beautiful\ Wallpaper3.png);
+        background-repeat: no-repeat;
+      }
        .login-logo {
          flex: 2;
        }
@@ -35,17 +38,17 @@
        }
 
        .create-account {
-         color: #fff;
+         color: rgb(27, 23, 23);
          text-decoration: underline;
          background: none;
        }
 
        .login-button {
-           width: 100%;
-           border-radius: 30px;
+           width: 25%;
+           border-radius: 20px;
            font-size: 0.9em;
-           background-color: transparent;
-           border: 1px solid #fff;
+           background-color: grey;
+           border: 1px solid rgb(17, 15, 15);
        }
 
    }
